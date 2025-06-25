@@ -1,0 +1,277 @@
+{
+  "version": "1.0.0",
+  "description": "Elite Commander Dashboard Layout Tree",
+  "root_elements": ["elite_dashboard"],
+  "elements": {
+    "elite_dashboard": {
+      "type": "container",
+      "description": "Main Elite Commander dashboard container",
+      "default_tags": {
+        "minimal": 0.3,
+        "focused": 0.5,
+        "alert": 0.4
+      },
+      "parent": null,
+      "children": ["command_header", "executive_overview", "portfolio_grid", "command_sidebar"],
+      "css_selector": ".elite-dashboard",
+      "adaptation_priority": "high"
+    },
+    "command_header": {
+      "type": "panel",
+      "description": "Executive command header with key metrics",
+      "default_tags": {
+        "compact": 0.4,
+        "focused": 0.6,
+        "energetic": 0.3
+      },
+      "parent": "elite_dashboard",
+      "children": ["metrics_bar", "alert_center", "command_controls"],
+      "css_selector": ".command-header",
+      "adaptation_priority": "high"
+    },
+    "metrics_bar": {
+      "type": "component",
+      "description": "Real-time portfolio metrics display",
+      "default_tags": {
+        "dense": 0.5,
+        "alert": 0.7,
+        "sharp": 0.4
+      },
+      "parent": "command_header",
+      "children": [],
+      "css_selector": ".metrics-bar",
+      "adaptation_priority": "medium"
+    },
+    "alert_center": {
+      "type": "component",
+      "description": "Critical alerts and notifications",
+      "default_tags": {
+        "urgent": 0.8,
+        "focused": 0.9,
+        "heavy": 0.6
+      },
+      "parent": "command_header",
+      "children": [],
+      "css_selector": ".alert-center",
+      "adaptation_priority": "critical"
+    },
+    "command_controls": {
+      "type": "component",
+      "description": "Executive action controls",
+      "default_tags": {
+        "energetic": 0.7,
+        "focused": 0.8,
+        "sharp": 0.5
+      },
+      "parent": "command_header",
+      "children": [],
+      "css_selector": ".command-controls",
+      "adaptation_priority": "high"
+    },
+    "executive_overview": {
+      "type": "container",
+      "description": "High-level executive overview section",
+      "default_tags": {
+        "open": 0.6,
+        "focused": 0.7,
+        "calm": 0.3
+      },
+      "parent": "elite_dashboard",
+      "children": ["kpi_summary", "trend_analysis", "risk_indicators"],
+      "css_selector": ".executive-overview",
+      "adaptation_priority": "high"
+    },
+    "kpi_summary": {
+      "type": "card",
+      "description": "Key performance indicators summary",
+      "default_tags": {
+        "dense": 0.4,
+        "sharp": 0.3,
+        "alert": 0.5
+      },
+      "parent": "executive_overview",
+      "children": [],
+      "css_selector": ".kpi-summary",
+      "adaptation_priority": "high"
+    },
+    "trend_analysis": {
+      "type": "card",
+      "description": "Portfolio trend analysis",
+      "default_tags": {
+        "smooth": 0.5,
+        "open": 0.4,
+        "calm": 0.6
+      },
+      "parent": "executive_overview",
+      "children": [],
+      "css_selector": ".trend-analysis",
+      "adaptation_priority": "medium"
+    },
+    "risk_indicators": {
+      "type": "card",
+      "description": "Risk assessment indicators",
+      "default_tags": {
+        "urgent": 0.6,
+        "sharp": 0.7,
+        "heavy": 0.5
+      },
+      "parent": "executive_overview",
+      "children": [],
+      "css_selector": ".risk-indicators",
+      "adaptation_priority": "critical"
+    },
+    "portfolio_grid": {
+      "type": "container",
+      "description": "Portfolio companies grid view",
+      "default_tags": {
+        "open": 0.5,
+        "minimal": 0.4,
+        "focused": 0.6
+      },
+      "parent": "elite_dashboard",
+      "children": ["company_cards", "performance_charts", "action_items"],
+      "css_selector": ".portfolio-grid",
+      "adaptation_priority": "medium"
+    },
+    "company_cards": {
+      "type": "grid",
+      "description": "Individual company status cards",
+      "default_tags": {
+        "compact": 0.3,
+        "smooth": 0.4,
+        "light": 0.3
+      },
+      "parent": "portfolio_grid",
+      "children": [],
+      "css_selector": ".company-cards",
+      "adaptation_priority": "medium"
+    },
+    "performance_charts": {
+      "type": "component",
+      "description": "Performance visualization charts",
+      "default_tags": {
+        "open": 0.6,
+        "calm": 0.5,
+        "light": 0.4
+      },
+      "parent": "portfolio_grid",
+      "children": [],
+      "css_selector": ".performance-charts",
+      "adaptation_priority": "low"
+    },
+    "action_items": {
+      "type": "list",
+      "description": "Executive action items and tasks",
+      "default_tags": {
+        "focused": 0.8,
+        "urgent": 0.5,
+        "dense": 0.4
+      },
+      "parent": "portfolio_grid",
+      "children": [],
+      "css_selector": ".action-items",
+      "adaptation_priority": "high"
+    },
+    "command_sidebar": {
+      "type": "panel",
+      "description": "Command and control sidebar",
+      "default_tags": {
+        "dense": 0.6,
+        "focused": 0.7,
+        "energetic": 0.4
+      },
+      "parent": "elite_dashboard",
+      "children": ["quick_actions", "intelligence_feed", "system_status"],
+      "css_selector": ".command-sidebar",
+      "adaptation_priority": "medium"
+    },
+    "quick_actions": {
+      "type": "component",
+      "description": "Quick executive actions",
+      "default_tags": {
+        "energetic": 0.8,
+        "sharp": 0.6,
+        "compact": 0.5
+      },
+      "parent": "command_sidebar",
+      "children": [],
+      "css_selector": ".quick-actions",
+      "adaptation_priority": "high"
+    },
+    "intelligence_feed": {
+      "type": "feed",
+      "description": "Real-time intelligence and updates",
+      "default_tags": {
+        "dense": 0.7,
+        "alert": 0.6,
+        "thin": 0.4
+      },
+      "parent": "command_sidebar",
+      "children": [],
+      "css_selector": ".intelligence-feed",
+      "adaptation_priority": "medium"
+    },
+    "system_status": {
+      "type": "component",
+      "description": "System health and status indicators",
+      "default_tags": {
+        "minimal": 0.6,
+        "calm": 0.7,
+        "light": 0.5
+      },
+      "parent": "command_sidebar",
+      "children": [],
+      "css_selector": ".system-status",
+      "adaptation_priority": "low"
+    }
+  },
+  "adaptation_rules": {
+    "propagation": {
+      "enabled": true,
+      "factor": 0.3,
+      "description": "Child elements inherit 30% of parent tag changes"
+    },
+    "priority_levels": {
+      "critical": {
+        "weight_multiplier": 1.0,
+        "description": "Critical elements maintain full adaptation strength"
+      },
+      "high": {
+        "weight_multiplier": 0.8,
+        "description": "High priority elements get 80% adaptation strength"
+      },
+      "medium": {
+        "weight_multiplier": 0.6,
+        "description": "Medium priority elements get 60% adaptation strength"
+      },
+      "low": {
+        "weight_multiplier": 0.4,
+        "description": "Low priority elements get 40% adaptation strength"
+      }
+    },
+    "biometric_targets": {
+      "fatigue": {
+        "primary_targets": ["executive_overview", "portfolio_grid"],
+        "secondary_targets": ["command_header"],
+        "avoid_targets": ["alert_center", "risk_indicators"]
+      },
+      "stress": {
+        "primary_targets": ["elite_dashboard", "executive_overview"],
+        "secondary_targets": ["portfolio_grid", "command_sidebar"],
+        "avoid_targets": ["alert_center", "command_controls"]
+      },
+      "attention_drift": {
+        "primary_targets": ["kpi_summary", "action_items"],
+        "secondary_targets": ["command_header", "quick_actions"],
+        "avoid_targets": ["system_status", "performance_charts"]
+      }
+    }
+  },
+  "css_generation": {
+    "enabled": true,
+    "output_file": "command-reflex-styles.css",
+    "prefix": "cr-",
+    "description": "Auto-generate CSS classes based on tag weights"
+  }
+}
+

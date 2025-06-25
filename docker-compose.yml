@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  elite-command-api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=placeholder_secret_key_change_in_production_12345
+      - WORDSMIMIR_API_KEY=placeholder_wordsmimir_api_key_replace_with_real_key
+      - WORDSMIMIR_BASE_URL=https://wordsmimir.t-pip.no/api/v1
+      - DATABASE_URL=sqlite:///src/database/app.db
+      - UPLOAD_FOLDER=/tmp/elite_command_uploads
+      - LOG_LEVEL=INFO
+      - CORS_ORIGINS=*
+    volumes:
+      - ./src/database:/app/src/database
+      - ./logs:/app/logs
+      - uploads:/tmp/elite_command_uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  uploads:
+

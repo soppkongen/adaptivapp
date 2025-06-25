@@ -1,0 +1,240 @@
+{
+  "version": "1.0.0",
+  "description": "UI tag definitions for Command Reflex Layer",
+  "categories": {
+    "style": {
+      "description": "Visual appearance and aesthetic properties",
+      "tags": {
+        "sharp": {
+          "weight": 0.0,
+          "conflicts": ["smooth", "soft"],
+          "css_properties": {
+            "border-radius": "2px",
+            "box-shadow": "0 2px 8px rgba(0,0,0,0.3)",
+            "font-weight": "600"
+          }
+        },
+        "smooth": {
+          "weight": 0.0,
+          "conflicts": ["sharp", "harsh"],
+          "css_properties": {
+            "border-radius": "8px",
+            "box-shadow": "0 1px 4px rgba(0,0,0,0.1)",
+            "font-weight": "400"
+          }
+        },
+        "soft": {
+          "weight": 0.0,
+          "conflicts": ["sharp", "harsh"],
+          "css_properties": {
+            "border-radius": "12px",
+            "box-shadow": "0 1px 2px rgba(0,0,0,0.05)",
+            "font-weight": "300"
+          }
+        },
+        "harsh": {
+          "weight": 0.0,
+          "conflicts": ["smooth", "soft"],
+          "css_properties": {
+            "border-radius": "0px",
+            "box-shadow": "0 4px 12px rgba(0,0,0,0.4)",
+            "font-weight": "700"
+          }
+        },
+        "calm": {
+          "weight": 0.0,
+          "conflicts": ["energetic", "vibrant"],
+          "css_properties": {
+            "color": "#6b7280",
+            "background-color": "#f9fafb",
+            "border-color": "#e5e7eb"
+          }
+        },
+        "energetic": {
+          "weight": 0.0,
+          "conflicts": ["calm", "muted"],
+          "css_properties": {
+            "color": "#1f2937",
+            "background-color": "#ffffff",
+            "border-color": "#3b82f6"
+          }
+        }
+      }
+    },
+    "layout": {
+      "description": "Spatial arrangement and organization",
+      "tags": {
+        "dense": {
+          "weight": 0.0,
+          "conflicts": ["open", "spacious"],
+          "css_properties": {
+            "padding": "8px",
+            "margin": "4px",
+            "gap": "8px"
+          }
+        },
+        "open": {
+          "weight": 0.0,
+          "conflicts": ["dense", "compact"],
+          "css_properties": {
+            "padding": "24px",
+            "margin": "16px",
+            "gap": "20px"
+          }
+        },
+        "spacious": {
+          "weight": 0.0,
+          "conflicts": ["dense", "compact"],
+          "css_properties": {
+            "padding": "32px",
+            "margin": "24px",
+            "gap": "32px"
+          }
+        },
+        "compact": {
+          "weight": 0.0,
+          "conflicts": ["open", "spacious"],
+          "css_properties": {
+            "padding": "4px",
+            "margin": "2px",
+            "gap": "4px"
+          }
+        },
+        "focused": {
+          "weight": 0.0,
+          "conflicts": ["scattered"],
+          "css_properties": {
+            "max-width": "800px",
+            "margin": "0 auto",
+            "text-align": "center"
+          }
+        },
+        "minimal": {
+          "weight": 0.0,
+          "conflicts": ["complex", "busy"],
+          "css_properties": {
+            "border": "none",
+            "background": "transparent",
+            "box-shadow": "none"
+          }
+        }
+      }
+    },
+    "density": {
+      "description": "Information density and visual weight",
+      "tags": {
+        "light": {
+          "weight": 0.0,
+          "conflicts": ["heavy", "thick"],
+          "css_properties": {
+            "opacity": "0.8",
+            "font-weight": "300",
+            "border-width": "1px"
+          }
+        },
+        "heavy": {
+          "weight": 0.0,
+          "conflicts": ["light", "thin"],
+          "css_properties": {
+            "opacity": "1.0",
+            "font-weight": "700",
+            "border-width": "3px"
+          }
+        },
+        "thin": {
+          "weight": 0.0,
+          "conflicts": ["heavy", "thick"],
+          "css_properties": {
+            "font-weight": "200",
+            "border-width": "0.5px",
+            "line-height": "1.2"
+          }
+        },
+        "thick": {
+          "weight": 0.0,
+          "conflicts": ["light", "thin"],
+          "css_properties": {
+            "font-weight": "800",
+            "border-width": "4px",
+            "line-height": "1.8"
+          }
+        }
+      }
+    },
+    "mood": {
+      "description": "Emotional tone and user state adaptation",
+      "tags": {
+        "relaxed": {
+          "weight": 0.0,
+          "conflicts": ["tense", "urgent"],
+          "css_properties": {
+            "transition": "all 0.3s ease",
+            "animation": "none",
+            "cursor": "default"
+          }
+        },
+        "alert": {
+          "weight": 0.0,
+          "conflicts": ["drowsy", "passive"],
+          "css_properties": {
+            "transition": "all 0.1s ease",
+            "animation": "pulse 2s infinite",
+            "cursor": "pointer"
+          }
+        },
+        "urgent": {
+          "weight": 0.0,
+          "conflicts": ["relaxed", "calm"],
+          "css_properties": {
+            "transition": "all 0.05s ease",
+            "animation": "flash 1s infinite",
+            "cursor": "pointer"
+          }
+        },
+        "passive": {
+          "weight": 0.0,
+          "conflicts": ["alert", "active"],
+          "css_properties": {
+            "transition": "all 0.5s ease",
+            "animation": "none",
+            "cursor": "default"
+          }
+        }
+      }
+    }
+  },
+  "conflict_resolution": {
+    "strategy": "weighted_reduction",
+    "reduction_factor": 0.7,
+    "description": "When conflicting tags are applied, reduce conflicting tag weights by reduction_factor"
+  },
+  "adaptation_rules": {
+    "biometric_mappings": {
+      "fatigue": {
+        "increase": ["soft", "calm", "light", "spacious"],
+        "decrease": ["sharp", "energetic", "heavy", "dense"]
+      },
+      "stress": {
+        "increase": ["calm", "smooth", "relaxed", "minimal"],
+        "decrease": ["harsh", "urgent", "heavy", "complex"]
+      },
+      "eye_strain": {
+        "increase": ["soft", "light", "spacious"],
+        "decrease": ["sharp", "heavy", "dense"]
+      },
+      "attention_drift": {
+        "increase": ["focused", "minimal", "alert"],
+        "decrease": ["scattered", "complex", "passive"]
+      }
+    },
+    "command_patterns": {
+      "too_harsh": ["smooth", "calm"],
+      "too_soft": ["energetic", "sharp"],
+      "too_noisy": ["minimal", "open"],
+      "too_empty": ["dense", "energetic"],
+      "hard_to_focus": ["focused", "minimal"],
+      "too_crowded": ["open", "spacious"]
+    }
+  }
+}
+
